@@ -16,8 +16,8 @@ class CompleteTaskAdapter(private val taskViewModel: TaskViewModel) : RecyclerVi
         fun bind(task: Task) {
             itemBinding.taskTitle.text = task.taskTitle
             itemBinding.taskDesc.text = task.taskDesc
-            itemBinding.dueDate.text = task.dueDate
-            itemBinding.completedDate.text = task.completedDate
+            itemBinding.dueDate.text = "Due Date:" + task.dueDate
+            itemBinding.completedDate.text = "Completed Date:" + task.completedDate
         }
     }
 

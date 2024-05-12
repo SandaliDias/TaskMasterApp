@@ -40,7 +40,7 @@ class TaskAdapter(
         // Set task data
         holder.itemBinding.taskTitle.text = currentTask.taskTitle
         holder.itemBinding.taskDesc.text = currentTask.taskDesc
-        holder.itemBinding.dueDate.text = currentTask.dueDate
+        holder.itemBinding.dueDate.text = "Due Date:" + currentTask.dueDate
 
         // Parse due date
         val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
