@@ -2,6 +2,7 @@ package com.example.notesapp.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.notesapp.model.Task
 import com.example.notesapp.repository.TaskRepository
@@ -27,13 +28,16 @@ class TaskViewModel(app: Application, private val taskRepository: TaskRepository
             taskRepository.updateTask(task)
         }
 
-    fun getAllTasks() = taskRepository.getAllTasks()
+    fun getAllTasks(): LiveData<List<Task>> =
+        taskRepository.getAllTasks()
 
-    fun getNonCompletedTasks() = taskRepository.getNonCompletedTasks()
+    fun getNonCompletedTasks(): LiveData<List<Task>> =
+        taskRepository.getNonCompletedTasks()
 
-    fun getCompletedTasks() = taskRepository.getCompletedTasks()
+    fun getCompletedTasks(): LiveData<List<Task>> =
+        taskRepository.getCompletedTasks()
 
-    fun searchTask(query: String?) =
+    fun searchTask(query: String?): LiveData<List<Task>> =
         taskRepository.searchTask(query)
 
     fun markTaskAsCompleted(task: Task) {
@@ -43,6 +47,6 @@ class TaskViewModel(app: Application, private val taskRepository: TaskRepository
         updateTask(completedTask)
     }
 
-    fun searchCompletedTask(query: String?) =
+    fun searchCompletedTask(query: String?): LiveData<List<Task>> =
         taskRepository.searchCompletedTask(query)
 }
